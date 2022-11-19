@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { microcmsClient } from "../../lib/microcmsClient";
 
 export const getStaticProps = async () => {
@@ -18,7 +19,9 @@ const Page = ({ articles }) => {
       <h1>記事一覧</h1>
       <ul>
         {articles.map((article) => (
-          <li key={article.id}>{article.title}</li>
+          <li key={article.id}>
+            <Link href={`/articles/${article.id}`}>{article.title}</Link>
+          </li>
         ))}
       </ul>
     </>
